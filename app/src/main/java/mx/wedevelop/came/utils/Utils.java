@@ -33,6 +33,8 @@ public class Utils {
     }
 
     public static String formatDate(Date dateField) {
-        return df.format(dateField);
+        if(dateField == null)
+            dateField = new Date();
+        return dfDay.format(dateField);
     }
 }

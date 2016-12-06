@@ -2,6 +2,7 @@ package mx.wedevelop.came;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
@@ -16,10 +17,12 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import mx.wedevelop.came.adapter.VisitorAdapter;
+import mx.wedevelop.came.model.Service;
 import mx.wedevelop.came.model.Visitor;
 import mx.wedevelop.came.rest.ServiceGenerator;
 import mx.wedevelop.came.rest.VisitorClient;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
 
     private List<Visitor> visitorList = new ArrayList();
+    private List<Service> serviceList = new ArrayList();
     private VisitorAdapter adapter;
 
     @Override
@@ -84,6 +88,23 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onFailure(Call<List<Visitor>> call, Throwable t) {
+                Log.i(MainActivity.class.getName(), t.toString());
+            }
+        });
+
+
+        // Fetch and print a list of the contributors to this library.
+        Call<List<Service>> call2 = client.getServices();
+
+        call2.enqueue(new Callback<List<Service>>() {
+            @Override
+            public void onResponse(Call<List<Service>> call, Response<List<Service>> response) {
+                serviceList.clear();
+                serviceList.addAll(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Service>> call, Throwable t) {
                 Log.i(MainActivity.class.getName(), t.toString());
             }
         });
@@ -153,6 +174,7 @@ public class MainActivity extends AppCompatActivity
 
         Intent intent = new Intent(this, VisitorActivity.class);
         intent.putExtra(VisitorActivity.VISITOR, currentVisitor);
+        intent.putParcelableArrayListExtra(VisitorActivity.SERVICE, (ArrayList<Service>) serviceList);
         startActivity(intent);
     }
 }

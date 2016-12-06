@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Came</string>
+    <string name="app_name">CAME</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,4 +9,12 @@
     <string name="service_dialog_question">
         Deseas marcar como provisto el servicio %s?
     </string>
+
+    <string name="visitor_name">Name:</string>
+    <string name="visitor_location">Location:</string>
+    <string name="visitor_alias">Alias:</string>
+    <string name="visitor_birthdate">F. Nac.:</string>
+    <string name="visitor_gender">Genero:</string>
+    <string name="visitor_status">Estatus:</string>
+    <string name="visitor_ingreso">Ingreso:</string>
 </resources>

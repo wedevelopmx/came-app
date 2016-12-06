@@ -1,5 +1,6 @@
 package mx.wedevelop.came;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import mx.wedevelop.came.fragment.ServiceSelectionFmt;
 import mx.wedevelop.came.fragment.VisitorCard;
+import mx.wedevelop.came.fragment.VisitorProfileFmt;
 import mx.wedevelop.came.layout.SlidingTabLayout;
 import mx.wedevelop.came.model.Service;
 import mx.wedevelop.came.model.Visitor;
@@ -24,20 +26,31 @@ import retrofit2.Response;
 
 public class VisitorActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     public static final String VISITOR = "VISITOR";
+    public static final String SERVICE = "SERVICE";
 
     private AppSectionsPagerAdapter appSectionsPagerAdapter;
-    //private List<Service> serviceList = new ArrayList<Service>();
+    private Visitor visitor;
+    private List<Service> serviceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visitor);
 
+        Intent intent = getIntent();
+        if(intent != null) {
+            visitor = intent.getParcelableExtra(VisitorActivity.VISITOR);
+            serviceList = intent.getParcelableArrayListExtra(VisitorActivity.SERVICE);
+        }
+
+        //Setup user data
         VisitorCard visitorCard = (VisitorCard) getSupportFragmentManager().findFragmentById(R.id.visitor_card_fmt);
-        Visitor visitor = getIntent().getParcelableExtra(VisitorActivity.VISITOR);
         visitorCard.updateUI(visitor);
 
+        //Setup tabs
         appSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
+        appSectionsPagerAdapter.addPage("Visita", ServiceSelectionFmt.newInstance(serviceList));
+        appSectionsPagerAdapter.addPage("Profile", VisitorProfileFmt.newInstance(visitor));
 
         ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(appSectionsPagerAdapter);
@@ -52,24 +65,6 @@ public class VisitorActivity extends AppCompatActivity implements ViewPager.OnPa
     protected void onStart() {
         super.onStart();
 
-        // Create a very simple REST adapter which points the GitHub API endpoint.
-        VisitorClient client = ServiceGenerator.createService(VisitorClient.class);
-
-        // Fetch and print a list of the contributors to this library.
-        Call<List<Service>> call = client.getServices();
-
-        call.enqueue(new Callback<List<Service>>() {
-            @Override
-            public void onResponse(Call<List<Service>> call, Response<List<Service>> response) {
-                appSectionsPagerAdapter.updateServiceList(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<List<Service>> call, Throwable t) {
-                Log.i(MainActivity.class.getName(), t.toString());
-            }
-        });
-
     }
 
     @Override
@@ -79,14 +74,7 @@ public class VisitorActivity extends AppCompatActivity implements ViewPager.OnPa
 
     @Override
     public void onPageSelected(int position) {
-//        double quantity, cost;
-//        ReportListFragment fragment = (ReportListFragment) appSectionsPagerAdapter.getItem(position);
-//        Bundle bundle = fragment.getArguments();
-//        quantity = bundle.getDouble(ReportListFragment.QUANTITY);
-//        cost = bundle.getDouble(ReportListFragment.COST);
-//
-//        SalesSummaryFragment salesSummaryFragment = (SalesSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.sales_summary_fmt);
-//        salesSummaryFragment.updateUI((int)quantity, (int)cost);
+
     }
 
     @Override
@@ -96,42 +84,33 @@ public class VisitorActivity extends AppCompatActivity implements ViewPager.OnPa
 
     public static class AppSectionsPagerAdapter extends FragmentStatePagerAdapter {
         private ServiceSelectionFmt serviceSelectionFmt;
-        private List<Service> serviceList = new ArrayList<Service>();
+        private List<String> tabList = new ArrayList<String>();
+        private List<Fragment> fragmentList = new ArrayList<Fragment>();
 
 
         public AppSectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-            serviceSelectionFmt = ServiceSelectionFmt.newInstance(serviceList);
+        }
+
+        public void addPage(String tabName, Fragment frafment) {
+            tabList.add(tabName);
+            fragmentList.add(frafment);
         }
 
         @Override
         public Fragment getItem(int i) {
-            return serviceSelectionFmt;
+            return fragmentList.get(i);
         }
 
-        public void updateServiceList(List<Service> serviceList) {
-            serviceSelectionFmt.notifyDataChanged(serviceList);
-        }
 
         @Override
         public int getCount() {
-            return 1;
+            return fragmentList.size();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-
-            switch (position) {
-                case 0:
-                    return "Visita";
-                case 1:
-                    return "Historial";
-                case 2:
-                    return "Perfil";
-                case 3:
-                    return "Comentarios";
-            }
-            return "";
+            return tabList.get(position);
         }
     }
 }
