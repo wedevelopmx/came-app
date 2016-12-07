@@ -10,8 +10,16 @@
         Deseas marcar como provisto el servicio %s?
     </string>
 
+    <string name="camera_instruction">Presiona para activar camara</string>
+
     <string name="visitor_name">Name:</string>
+    <string name="visitor_last_name">A. Paterno:</string>
+    <string name="visitor_second_surename">A. Materno:</string>
     <string name="visitor_location">Location:</string>
+    <string name="visitor_country">Pais:</string>
+    <string name="visitor_state">Estado:</string>
+    <string name="visitor_town">Pueblo:</string>
+
     <string name="visitor_alias">Alias:</string>
     <string name="visitor_birthdate">F. Nac.:</string>
     <string name="visitor_gender">Genero:</string>

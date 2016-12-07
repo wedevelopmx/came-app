@@ -33,6 +33,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
 
+    private static final int NEW_VISITOR_REQ = 5000;
+
     private List<Visitor> visitorList = new ArrayList();
     private List<Service> serviceList = new ArrayList();
     private VisitorAdapter adapter;
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this, NewVisitorActivity.class);
+                startActivityForResult(intent, NEW_VISITOR_REQ);
             }
         });
 
@@ -71,7 +74,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+        queryAllVisitors();
+        queryAllServices();
+    }
 
+    private void queryAllVisitors() {
         // Create a very simple REST adapter which points the GitHub API endpoint.
         VisitorClient client = ServiceGenerator.createService(VisitorClient.class);
 
@@ -91,7 +98,11 @@ public class MainActivity extends AppCompatActivity
                 Log.i(MainActivity.class.getName(), t.toString());
             }
         });
+    }
 
+    private void queryAllServices() {
+        // Create a very simple REST adapter which points the GitHub API endpoint.
+        VisitorClient client = ServiceGenerator.createService(VisitorClient.class);
 
         // Fetch and print a list of the contributors to this library.
         Call<List<Service>> call2 = client.getServices();
@@ -108,7 +119,6 @@ public class MainActivity extends AppCompatActivity
                 Log.i(MainActivity.class.getName(), t.toString());
             }
         });
-
     }
 
     @Override
@@ -176,5 +186,11 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra(VisitorActivity.VISITOR, currentVisitor);
         intent.putParcelableArrayListExtra(VisitorActivity.SERVICE, (ArrayList<Service>) serviceList);
         startActivity(intent);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == NEW_VISITOR_REQ && resultCode == RESULT_OK) {
+            queryAllVisitors();
+        }
     }
 }
