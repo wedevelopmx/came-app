@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -112,9 +114,6 @@ public class NewVisitorActivity extends AppCompatActivity implements View.OnClic
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-            ImageView imageView = (ImageView) findViewById(R.id.visitor_picture);
-            imageView.setImageBitmap(imageBitmap);
-
             //Save Picture
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
@@ -124,6 +123,14 @@ public class NewVisitorActivity extends AppCompatActivity implements View.OnClic
 
             visitor.setPictureDataURI("data:image/jpeg;base64," + encoded);
 
+            //Set image
+            ImageView imageView = (ImageView) findViewById(R.id.visitor_picture);
+            RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(getResources(), imageBitmap);
+            dr.setCornerRadius(Math.max(imageBitmap.getWidth(), imageBitmap.getHeight()) / 2.0f);
+            imageView.setImageDrawable(dr);
+
+
+            //Make section invisible
             RelativeLayout cameraLayout = (RelativeLayout) findViewById(R.id.camera_layout);
             cameraLayout.setVisibility(View.GONE);
             RelativeLayout pictureLayout = (RelativeLayout) findViewById(R.id.picture_layout);

@@ -42,6 +42,7 @@
         <TextView
             android:id="@+id/visitor_location"
             android:text="Mexico, San Luis Potosi"
+            android:textStyle="italic"
             style="@style/Base.TextAppearance.AppCompat.Small.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +44,13 @@ public class VisitorAdapter extends ArrayAdapter<Visitor> {
         visitorLocationTextView.setText(currentVisitor.getLocation());
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.visitor_picture);
-        imageView.setImageBitmap(currentVisitor.getImage());
+
+        //Make circular bitmap
+        Bitmap image = currentVisitor.getImage();
+        RoundedBitmapDrawable dr =
+                RoundedBitmapDrawableFactory.create(getContext().getResources(), image);
+        dr.setCornerRadius(Math.max(image.getWidth(), image.getHeight()) / 2.0f);
+        imageView.setImageDrawable(dr);
 
         return listItemView;
     }

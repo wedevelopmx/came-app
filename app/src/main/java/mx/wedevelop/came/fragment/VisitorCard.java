@@ -1,7 +1,10 @@
 package mx.wedevelop.came.fragment;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +30,10 @@ public class VisitorCard extends Fragment {
         TextView locationTextView = (TextView) getView().findViewById(R.id.visitor_location);
         locationTextView.setText(v.getLocation());
         ImageView profileImageView = (ImageView) getView().findViewById(R.id.visitor_picture);
-        profileImageView.setImageBitmap(v.getImage());
+        Bitmap image = v.getImage();
+        RoundedBitmapDrawable dr =
+                RoundedBitmapDrawableFactory.create(getContext().getResources(), image);
+        dr.setCornerRadius(Math.max(image.getWidth(), image.getHeight()) / 2.0f);
+        profileImageView.setImageDrawable(dr);
     }
 }

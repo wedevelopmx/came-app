@@ -12,5 +12,9 @@
         android:id="@+id/visitor_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/visitor_list_item"></ListView>
+        tools:listitem="@layout/visitor_list_item"
+        android:divider="@null"
+        android:dividerHeight="0dp">
+
+    </ListView>
 </LinearLayout>

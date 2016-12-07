@@ -11,6 +11,7 @@
     </string>
 
     <string name="camera_instruction">Presiona para activar camara</string>
+    <string name="search_title">Buscar visitante</string>
 
     <string name="visitor_name">Name:</string>
     <string name="visitor_last_name">A. Paterno:</string>

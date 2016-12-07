@@ -10,7 +10,7 @@ import java.util.Date;
 public class Utils {
     private static final SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm");
     private static final SimpleDateFormat dfHour = new SimpleDateFormat("HH:mm a");
-    private static final SimpleDateFormat dfDay = new SimpleDateFormat("EEE, MMM d, yyyy");
+    private static final SimpleDateFormat dfDay = new SimpleDateFormat("MMM d, yyyy");
 
     public static Date parseDate(String dateField) {
         java.util.Date date = null;
