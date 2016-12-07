@@ -26,4 +26,9 @@
     <string name="visitor_gender">Genero:</string>
     <string name="visitor_status">Estatus:</string>
     <string name="visitor_ingreso">Ingreso:</string>
+
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="instruction">Instrucciones: </string>
+
 </resources>

@@ -80,13 +80,13 @@ public class ServiceDialog extends DialogFragment {
 
         dialogBuilder.setTitle(service.getName());
         dialogBuilder.setView(view)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         service.setSelected(!service.isSelected());
                         listener.onPositiveAnswer(dialog, id);
                     }
                 })
-                .setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         listener.onNegativeAnswer(dialog, id);
                     }

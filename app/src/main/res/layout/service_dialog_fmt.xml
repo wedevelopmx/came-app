@@ -12,19 +12,33 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/service_icon"
-            android:src="@drawable/profile"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:padding="@dimen/activity_vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/service_icon"
+                android:src="@drawable/profile"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
 
         <TextView
-            android:id="@+id/service_instructions"
-            android:text="Instrucciones: Estas son las instrucciones que recivira el usuario sobre el servicio seleccionado."
-            android:textColor="@android:color/white"
-            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:text="@string/instruction"
+            android:textAllCaps="true"
             android:paddingTop="16dp"
+            style="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/service_instructions"
+            android:text="Estas son las instrucciones que recivira el usuario sobre el servicio seleccionado."
+            android:textStyle="italic"
+            style="@style/Base.TextAppearance.AppCompat.Small.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
