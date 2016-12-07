@@ -124,6 +124,7 @@
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:nextFocusForward="@+id/visitor_alias"/>
             </LinearLayout>
 
@@ -166,6 +167,7 @@
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:nextFocusForward="@+id/visitor_state"/>
             </LinearLayout>
 
