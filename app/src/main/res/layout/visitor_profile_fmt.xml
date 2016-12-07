@@ -20,14 +20,14 @@
             <TextView
                 android:text="@string/visitor_name"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_name"
                 android:text="Cristian Colorado Cervantes"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -42,14 +42,14 @@
             <TextView
                 android:text="@string/visitor_alias"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_alias"
                 android:text="Cris"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -64,14 +64,14 @@
             <TextView
                 android:text="@string/visitor_location"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_location"
                 android:text="Mexico, San Luis Potosi"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -86,14 +86,14 @@
             <TextView
                 android:text="@string/visitor_birthdate"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_birthdate"
                 android:text="Abril 1, 1985"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -108,14 +108,14 @@
             <TextView
                 android:text="@string/visitor_gender"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_gender"
                 android:text="Hombre"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -130,14 +130,14 @@
             <TextView
                 android:text="@string/visitor_status"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_status"
                 android:text="Migrante"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -152,14 +152,14 @@
             <TextView
                 android:text="@string/visitor_ingreso"
                 android:textStyle="bold"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/visitor_checkin"
                 android:text="Diciembre 1, 2016"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />

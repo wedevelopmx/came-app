@@ -2,12 +2,14 @@ package mx.wedevelop.came.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +61,14 @@ public class VisitorProfileFmt extends Fragment {
 
         TextView checkin = (TextView) rootView.findViewById(R.id.visitor_checkin);
         checkin.setText("Dic 2, 2016");
+
+        FloatingActionButton edit = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Pronto podras editar el perfil del visitante desde este lugar!", Toast.LENGTH_LONG).show();
+            }
+        });
 
         return rootView;
     }
