@@ -14,8 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity
                 visitorList.clear();
                 visitorList.addAll(response.body());
                 adapter.notifyDataSetChanged();
+                RelativeLayout rl = (RelativeLayout)findViewById(R.id.progress_screen);
+                rl.setVisibility(ViewGroup.GONE);
             }
 
             @Override

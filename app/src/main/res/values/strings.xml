@@ -35,4 +35,6 @@
     <string name="historical">Historial</string>
     <string name="profile">Perfil</string>
 
+    <string name="visitor_list_progress">Estamos cargando los visitantes...</string>
+
 </resources>
