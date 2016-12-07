@@ -31,4 +31,8 @@
     <string name="no">No</string>
     <string name="instruction">Instrucciones: </string>
 
+    <string name="visit">Visita</string>
+    <string name="historical">Historial</string>
+    <string name="profile">Perfil</string>
+
 </resources>

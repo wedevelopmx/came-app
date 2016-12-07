@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/timelapse"
+        android:padding="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:background="@drawable/visit_circle"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_toRightOf="@+id/timelapse"
+        android:paddingTop="6dp"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/visit_date"
+            android:text="Dec 4, 2016"
+            android:textStyle="bold"
+            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:paddingBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/services_desc"
+            android:text="Servicios: "
+            android:textAllCaps="true"
+            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:layout_below="@+id/visit_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Comida, Llamada, Donacion, Hospedaje"
+            android:textStyle="italic"
+            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:paddingLeft="10dp"
+            android:layout_toRightOf="@+id/services_desc"
+            android:layout_below="@+id/visit_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

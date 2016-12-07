@@ -14,6 +14,7 @@ import java.util.List;
 
 import mx.wedevelop.came.fragment.ServiceSelectionFmt;
 import mx.wedevelop.came.fragment.VisitorCard;
+import mx.wedevelop.came.fragment.VisitorHistoricalFmt;
 import mx.wedevelop.came.fragment.VisitorProfileFmt;
 import mx.wedevelop.came.layout.SlidingTabLayout;
 import mx.wedevelop.came.model.Service;
@@ -49,8 +50,9 @@ public class VisitorActivity extends AppCompatActivity implements ViewPager.OnPa
 
         //Setup tabs
         appSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
-        appSectionsPagerAdapter.addPage("Visita", ServiceSelectionFmt.newInstance(serviceList));
-        appSectionsPagerAdapter.addPage("Profile", VisitorProfileFmt.newInstance(visitor));
+        appSectionsPagerAdapter.addPage(getString(R.string.visit), ServiceSelectionFmt.newInstance(serviceList));
+        appSectionsPagerAdapter.addPage(getString(R.string.historical), VisitorHistoricalFmt.newInstance());
+        appSectionsPagerAdapter.addPage(getString(R.string.profile), VisitorProfileFmt.newInstance(visitor));
 
         ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(appSectionsPagerAdapter);
